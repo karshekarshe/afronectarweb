@@ -1,0 +1,13 @@
+{
+  "back_home_button_name": "Retour accueil",
+  "login_title": "Connectez-vous",
+  "login_instruction": "Entrez votre email et votre mot de passe pour vous connecter !",
+  "login_social_instruction": "Connectez-vous à votre compte tiers",
+  "login_email_field_name": "Email",
+  "login_password_field_name": "Mot de passe",
+  "login_forgotten_link_name": "Mot de passe oublié ?",
+  "login_button_name": "Connexion",
+  "registration_feature_title": "Rejoignez BUN™ Club",
+  "registration_feature_description": "En tant que membre, vous pourrez régler vos achats plus rapidement, payer avec Twint et gagner des récompenses. L'adhésion est gratuite.",
+  "registration_feature_register_link_title": "Inscription"
+}
