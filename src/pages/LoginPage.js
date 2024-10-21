@@ -1,11 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
 import { useTranslation } from "react-i18next";
-import validator from "validator/es";
 import Logo from '../assets/images/logo.png'
 import '../App'
-import instance from "../utils/Axios";
-import {CircleAnimationIcon} from "./ActivateAccountPage";
+import LoginForm from "../components/LoginForm";
 import MenuLanguage from "../components/MenuLanguage";
+
 
 
 export default  function LoginPage(){
@@ -15,8 +13,9 @@ export default  function LoginPage(){
             <nav className="w-full py-4 border border-gray-300">
                 <div className="container mx-auto max-w-lg">
                     <div className="w-full flex flex-row items-center justify-between">
-                        <a className="text-[8px]  font-light uppercase py-1 px-1 bg-green-800 text-white rounded-md hover:bg-green-600"
-                           href="/">{t('back_home_button_name')}
+                        <a className="text-[8px]  font-medium uppercase py-1 px-1 bg-green-800 text-white rounded-md hover:bg-green-600"
+                           href="/">
+                            {t('back_home_button_name')}
                         </a>
                         <MenuLanguage/>
                     </div>
@@ -24,12 +23,12 @@ export default  function LoginPage(){
             </nav>
             <div className="container mx-auto space-y-5 max-w-lg">
                 <div className="space-y-2 px-0 text-center md:text-left">
-                    <h1 className="font-bold">Connectez-vous</h1>
-                    <p className="text-xs">Entrez votre email et votre mot de passe pour vous connecter!</p>
+                    <h1 className="font-bold">{t('login_title')}</h1>
+                    <p className="text-xs">{t('login_instruction')}</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                     <div className="flex flex-col items-start justify-start space-y-2 ma-w-[350px] md:max-w-[320px]">
-                        <h2 className="text-xs">Connectez-vous à votre compte tiers</h2>
+                        <h2 className="text-xs">{t('login_social_instruction')}</h2>
                         <button className="capitalize px-1 py-1 inline-flex gap-2 hover:bg-blue-50 rounded-md items-center justify-center text-xs w-full border border-gray-500">
                             <GoogleIcon className="w-4"/>
                             google
@@ -39,11 +38,9 @@ export default  function LoginPage(){
                     </div>
                     <div className="border border-white shadow-2xl max-w-sm md:max-w-xs flex flex-col justify-center gap-4 items-start px-4 py-4 max-h-[300px]">
                         <img className="max-w-[100px] h-auto mx-auto" src={Logo} alt="logo"/>
-                        <h2 className="text-sm">Rejoignez <span className="font-medium">BUN&trade;</span> Club</h2>
-                        <p className="text-xs font-light text-justify w-full leading-1">En tant que membre, vous pourrez régler vos achats plus
-                            rapidement, payer avec Twint et gagner des récompenses. L'adhésion est gratuite.</p>
-                        <a className="text-xs underline text-green-800" href="/account/registration">Inscription</a>
-
+                        <h2 className="text-sm">{t('registration_feature_title')}</h2>
+                        <p className="text-[13px] font-light text-justify  w-full">{t('registration_feature_description')}</p>
+                        <a className="text-xs underline text-green-800" href="/account/registration">{t('registration_feature_register_link_title')}</a>
                     </div>
                 </div>
             </div>
@@ -52,117 +49,8 @@ export default  function LoginPage(){
 }
 
 
-function LoginForm() {
-    const [email, setEmail] = useState({email: '', errorMessage: '', isEmailValidate: false})
-    const [password, setPassword] = useState({password: '', errorMessage: '', isPasswordValidate: false})
-    const [error, setError] = useState('')
-    const [loading, setLoading] = useState(false)
-    const emailRef = useRef(null);
-    const passwordRef = useRef(null)
 
-    useEffect(() => {
-        emailRef.current.focus();
-    }, [])
-
-    const validateEmail = (event) => {
-        const emailValue = event.target.value
-        if (validator.isEmail(emailValue)) {
-            setEmail({
-                email: emailValue,
-                errorMessage: '',
-                isEmailValidate: true
-            })
-
-        } else {
-            setEmail({
-                email: emailValue,
-                errorMessage: 'Veuillez fournir un format d\'e-mail correct',
-                isEmailValidate: false
-            });
-        }
-
-    }
-
-    const validatePassword = (event) => {
-        const passwordValue = event.target.value
-        if (validator.isLength(passwordValue, {min: 8})) {
-            setPassword({
-                password: passwordValue,
-                errorMessage: '',
-                isPasswordValidate: true
-            })
-
-        } else {
-            setPassword({
-                password: passwordValue,
-                errorMessage: 'Veuillez fournir un mot de passe d\'une longueur minimale de 8 caractères',
-                isPasswordValidate: false
-            })
-        }
-
-    }
-
-    const isButtonDisabled = () => {
-        return !(email.isEmailValidate && password.isPasswordValidate)
-    }
-
-    const handleSubmit = async () => {
-        setLoading(true)
-        const email = emailRef.current.value
-        const password = passwordRef.current.value
-        try {
-            const response = await instance.post('/auth/jwt/create', {
-                email:email,
-                password:password
-            })
-            setError('')
-            localStorage.setItem('accessToken', response.data.access)
-            localStorage.setItem('refreshToken', response.data.refresh)
-            setLoading(false)
-        } catch (error) {
-            setError(error.response.data.detail)
-            setLoading(false)
-        }
-    }
-
-    return (
-        <form className="space-y-2 w-full" noValidate={true}>
-            <p className="text-red-500 text-xs">{error}</p>
-            <div className="flex flex-col gap-1 w-full">
-                <label className="text-sm" htmlFor="email">Email</label>
-                <input  onChange={(event) => validateEmail(event)}
-                        value={email.email}
-                        ref={emailRef}
-                        placeholder="name@example.com"
-                        className="flex-grow px-1 py-1 text-xs placeholder:text-[10px] placeholder:text-black rounded-md border border-gray-400 focus:border-green-300"
-                        name="email"
-                        type="email"/>
-                <p className="text-[8px] text-red-500 font-medium">{email.errorMessage}</p>
-            </div>
-            <div className="flex flex-col gap-1 w-full">
-                <label htmlFor="password">Password</label>
-                <input  onChange={(event) => validatePassword(event)}
-                        value={password.password}
-                        ref={passwordRef}
-                        placeholder="*************"
-                        className="w-full px-1 py-1 text-xs  placeholder:text-[10px] placeholder:text-black rounded-md border border-gray-400"
-                        name="password" type="password"/>
-                <p className="text-[8px] text-red-500 font-medium">{password.errorMessage}</p>
-            </div>
-            <a className="text-xs underline text-green-800" href="/account/password-reset">Mot de passe oublié ?</a>
-            <button
-                onClick={handleSubmit}
-                type="button"
-                disabled={isButtonDisabled()}
-                className="bg-green-600 capitalize w-full flex flex-row items-center justify-center text-white px-1 py-1  text-sm rounded-md disabled:bg-gray-200 disabled:text-black">
-                {loading ? <CircleAnimationIcon className="w-5" />: 'connexion' }
-            </button>
-        </form>
-    )
-}
-
-
-function GoogleIcon(prop) {
+export function GoogleIcon(prop) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 48 48" {...prop}>
             <path fill="#fbc02d"

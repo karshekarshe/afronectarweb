@@ -3,6 +3,8 @@ import { initReactI18next } from "react-i18next";
 import HttpApi from "i18next-http-backend";
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+
+
 i18n
     .use(HttpApi)
     .use(LanguageDetector)
@@ -15,7 +17,7 @@ i18n
             escapeValue: false,
         },
         backend:{
-            loadPath: '/locale/{{lng}}/translation.json'
+            loadPath: '/local/{{lng}}/translation.json'
         },
     })
 

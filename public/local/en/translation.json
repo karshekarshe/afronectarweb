@@ -1,0 +1,13 @@
+{
+  "back_home_button_name": "Back to home",
+  "login_title": "Log in",
+  "login_instruction": "Enter your email and password to log in!",
+  "login_social_instruction": "Log in to your third-party account",
+  "login_email_field_name": "Email",
+  "login_password_field_name": "Password",
+  "login_forgotten_link_name": "Forgotten your password?",
+  "login_button_name": "Log in",
+  "registration_feature_title": "Join BUN™ Club",
+  "registration_feature_description": "As a member, you can check out faster, pay with Twint and earn rewards. It's free to join.",
+  "registration_feature_register_link_title": "Register"
+}
