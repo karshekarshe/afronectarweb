@@ -9,5 +9,6 @@
   "login_button_name": "Connexion",
   "registration_feature_title": "Rejoignez BUN™ Club",
   "registration_feature_description": "En tant que membre, vous pourrez régler vos achats plus rapidement, payer avec Twint et gagner des récompenses. L'adhésion est gratuite.",
-  "registration_feature_register_link_title": "Inscription"
+  "registration_feature_register_link_title": "Inscription",
+  "login_error_message": "Nom d'utilisateur ou mot de passe incorrect."
 }
