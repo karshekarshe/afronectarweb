@@ -9,5 +9,6 @@
   "login_button_name": "Log in",
   "registration_feature_title": "Join BUN™ Club",
   "registration_feature_description": "As a member, you can check out faster, pay with Twint and earn rewards. It's free to join.",
-  "registration_feature_register_link_title": "Register"
+  "registration_feature_register_link_title": "Register",
+  "login_error_message": "Invalid username or password."
 }

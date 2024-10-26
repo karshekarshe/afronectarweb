@@ -1,46 +1,44 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import validator from "validator/es";
-import instance from "../utils/Axios";
-import { CircleAnimationIcon } from "../pages/ActivateAccountPage";
+import instance from "../utils/Axios"
+import useSignIn from "react-auth-kit/hooks/useSignIn";
+import {CircleAnimationIcon} from "../pages/ActivateAccountPage";
 
-export default function LoginForm() {
-  const [email, setEmail] = useState({
-    email: "",
-    errorMessage: "",
-    isEmailValidate: false,
-  });
-  const [password, setPassword] = useState({
-    password: "",
-    errorMessage: "",
-    isPasswordValidate: false,
-  });
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-  const { t } = useTranslation();
 
-  useEffect(() => {
-    emailRef.current.focus();
-  }, []);
+export default  function LoginForm() {
+    const [email, setEmail] = useState({email: '', errorMessage: '', isEmailValidate: false})
+    const [password, setPassword] = useState({password: '', errorMessage: '', isPasswordValidate: false})
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
+    const emailRef = useRef(null);
+    const passwordRef = useRef(null)
+    const {t} = useTranslation()
+    //const signIn = useSignIn();
 
-  const validateEmail = (event) => {
-    const emailValue = event.target.value;
-    if (validator.isEmail(emailValue)) {
-      setEmail({
-        email: emailValue,
-        errorMessage: "",
-        isEmailValidate: true,
-      });
-    } else {
-      setEmail({
-        email: emailValue,
-        errorMessage: "Veuillez fournir un format d'e-mail correct",
-        isEmailValidate: false,
-      });
+    useEffect(() => {
+        emailRef.current.focus();
+    }, [])
+
+    const validateEmail = (event) => {
+        const emailValue = event.target.value
+        if (validator.isEmail(emailValue)) {
+            setEmail({
+                email: emailValue,
+                errorMessage: '',
+                isEmailValidate: true
+            })
+
+        } else {
+            setEmail({
+                email: emailValue,
+                errorMessage: 'Veuillez fournir un format d\'e-mail correct',
+                isEmailValidate: false
+            });
+        }
     }
-  };
+
+
 
   const validatePassword = (event) => {
     const passwordValue = event.target.value;
@@ -74,14 +72,13 @@ export default function LoginForm() {
         password: password,
       });
       setError("");
-      localStorage.setItem("accessToken", response.data.access);
-      localStorage.setItem("refreshToken", response.data.refresh);
       setLoading(false);
     } catch (error) {
-      setError(error.response.data.detail);
+      setError(t('login_error_message'));
       setLoading(false);
     }
   };
+
 
   return (
     <form className="space-y-2 w-full" noValidate={true}>
