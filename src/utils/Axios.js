@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
 // Create an Axios instance
 const instance = axios.create({
-  baseURL: 'http://localhost:8000', // Django API base URL
+  baseURL: "http://localhost:8000", // Django API base URL
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 

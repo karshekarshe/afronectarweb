@@ -1,13 +1,13 @@
 {
   "back_home_button_name": "Zurück zur Startseite",
- "login_title": "Anmelden",
- "login_instruction": "Geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein, um sich anzumelden!",
- "login_social_instruction": "Melden Sie sich bei Ihrem Drittanbieterkonto an",
- "login_email_field_name": "E-Mail",
- "login_password_field_name": "Passwort",
- "login_forgotten_link_name": "Passwort vergessen?",
- "login_button_name": "Anmelden",
- "registration_feature_title": "BUN™ Club beitreten",
- "registration_feature_description": "Als Mitglied können Sie schneller auschecken, mit Twint bezahlen und Prämien verdienen. Der Beitritt ist kostenlos.",
- "registration_feature_register_link_title": "Registrieren"
+  "login_title": "Anmelden",
+  "login_instruction": "Geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein, um sich anzumelden!",
+  "login_social_instruction": "Melden Sie sich bei Ihrem Drittanbieterkonto an",
+  "login_email_field_name": "E-Mail",
+  "login_password_field_name": "Passwort",
+  "login_forgotten_link_name": "Passwort vergessen?",
+  "login_button_name": "Anmelden",
+  "registration_feature_title": "BUN™ Club beitreten",
+  "registration_feature_description": "Als Mitglied können Sie schneller auschecken, mit Twint bezahlen und Prämien verdienen. Der Beitritt ist kostenlos.",
+  "registration_feature_register_link_title": "Registrieren"
 }
