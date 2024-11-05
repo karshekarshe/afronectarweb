@@ -1,0 +1,25 @@
+.rotated-bg {
+    position: relative;
+    overflow: hidden; /* Ensure the rotated background doesn’t spill out */
+}
+
+.rotated-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./assets/images/bg-abstract-flame-orange.jpeg');
+    background-size: cover;
+    background-position: center;
+    transform: rotate(180deg); /* Rotate background */
+    transform-origin: center;
+    z-index: -1; /* Keep it behind content */
+}
+
+.bg-flame-orange {
+    background-image: url('./assets/images/bg-abstract-flame-orange.jpeg');
+    background-size: cover;
+    background-position: center;
+}

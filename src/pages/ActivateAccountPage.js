@@ -95,7 +95,7 @@ export function CircleAnimationIcon(prop) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      style={{ margin: "auto", background: "none", display: "block" }}
+      style={{ margin: "auto", display: "block" }}
       viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid"
       {...prop}
@@ -104,8 +104,6 @@ export function CircleAnimationIcon(prop) {
         cx="50"
         cy="50"
         fill="none"
-        stroke="#4fa94d"
-        strokeWidth="8"
         r="35"
         strokeDasharray="164.93361431346415 56.97787143782138"
       >
