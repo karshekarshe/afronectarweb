@@ -1,6 +1,6 @@
 import '../App.css'
 import React, {useEffect, useState} from "react";
-import {AnnouncementService} from "../utils/AnnouncementService";
+import {AnnouncementService} from "../services/AnnouncementService";
 
 
 export default  function AnnouncementBannier(){

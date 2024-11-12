@@ -22,6 +22,7 @@ export default function IndexPage(){
             <AboutUs />
             <Products />
             <BlogHero />
+            <SurveyCard />
             <Footer />
         </>
     )

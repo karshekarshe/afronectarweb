@@ -5,6 +5,7 @@ import instance from "../utils/Axios";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
 import { useNavigate } from "react-router-dom";
 import { CircleAnimationIcon } from "../pages/ActivateAccountPage";
+import {AccountService} from "../services/AccountService";
 
 export default function LoginForm() {
   const [email, setEmail] = useState({
@@ -17,7 +18,7 @@ export default function LoginForm() {
     errorMessage: "",
     isPasswordValidate: false,
   });
-  const [error, setError] = useState("");
+  const [error, setError] = useState({});
   const [loading, setLoading] = useState(false);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -72,30 +73,33 @@ export default function LoginForm() {
     setLoading(true);
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    try {
-      const response = await instance.post("/auth/jwt/create", {
-        email: email,
-        password: password,
-      });
-      setError("");
-      signIn({
-        auth: {
-          token: response.data.access,
-          type: "Bearer",
-        },
-        refresh: response.data.refresh,
-      });
-      setLoading(false);
-      navigate("/");
-    } catch (error) {
-      setError(t("login_error_message"));
-      setLoading(false);
-    }
+
+    AccountService.login(email,  password)
+        .then(result => {
+          if (!result.success){
+            setError({...result.message})
+            setLoading(false)
+          } else {
+            setLoading(false)
+            setError({})
+              signIn({
+                auth: {
+                  token: result.data.access,
+                  type: "Bearer",
+                },
+                refresh: result.data.refresh,
+            });
+            navigate('/');
+            }
+    })
+
   };
 
   return (
     <form className="space-y-2 w-full" noValidate={true}>
-      <p className="text-red-500 text-sm md:text-base">{error}</p>
+      {Object.values(error).map((value, index) => (
+          <p key={index} className="text-red-500 text-sm h-11 md:text-base">{value}</p>
+      ))}
       <div className="flex flex-col gap-1 w-full">
         <label className="text-sm" htmlFor="email">
           {t("login_email_field_name")}
@@ -128,7 +132,7 @@ export default function LoginForm() {
             type="email"
           />
         </div>
-        <p className="text-[8px] md:text-base text-red-500 font-medium">
+        <p className="text-[14px] h-7 md:text-base text-red-500 font-medium">
           {email.errorMessage}
         </p>
       </div>
@@ -161,7 +165,7 @@ export default function LoginForm() {
             type="password"
           />
         </div>
-        <p className="text-[8px] md:text-base text-red-500 font-medium">
+        <p className="text-[14px] h-7 md:text-base text-red-500 font-medium">
           {password.errorMessage}
         </p>
       </div>
@@ -188,7 +192,7 @@ export default function LoginForm() {
           className="w-full md:w-1/2 px-1 py-3 text-sm md:text-base font-medium text-white bg-amber-800 text-center rounded-md"
           href="/account/register"
         >
-          Create a new account
+          Créer un nouveau compte
         </a>
       </div>
     </form>

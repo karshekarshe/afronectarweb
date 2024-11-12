@@ -1,6 +1,6 @@
 import '../App.css'
 import React, {useEffect, useState} from "react";
-import {VariantService} from '../utils/VariantService'
+import {VariantService} from '../services/VariantService'
 import SidamoExpressoBeans from '../assets/images/sidamo-expresso-coffee-beans.png'
 
 export default function Product(){

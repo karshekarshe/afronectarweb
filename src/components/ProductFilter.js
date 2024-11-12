@@ -15,7 +15,7 @@ export default function ProductFilter({ product, setProduct }) {
   }, []);
 
   return (
-    <section className="md:py-[120px] py-[40px]">
+    <section className="py-5">
       <div className="container mx-auto">
         <h2 className="text-center md:pb-[20px]  pb-[15px] md:text-[32px] text-[22px] text-[#13131A] font-semibold leading-[normal]">
           Filtrer par utilisation
@@ -43,7 +43,7 @@ function FilterButton({ index, activeIndex, setActiveIndex, name }) {
     <button
       onClick={() => setActiveIndex(index)}
       type="button"
-      className={`hover:bg-[#006838] ${index === activeIndex ? "bg-[#006838]" : "bg-white"} capitalize active:text-[#fff] hover:text-[#fff] transition-[0.5s] md:text-[16px] text-[12.956px] leading-[normal] font-medium text-[#49321B] md:h-[50px] h-[36px] px-[20px] rounded-[70px] border border-[#D1D2D5] border-solid active`}
+      className={`hover:bg-[#006838] ${index === activeIndex ? "bg-[#006838] text-[#fff]" : "bg-white"} capitalize  hover:text-[#fff] transition-[0.5s] md:text-[16px] text-[12.956px] leading-[normal] font-medium text-[#49321B] md:h-[50px] h-[36px] px-[20px] rounded-[70px] border border-[#D1D2D5] border-solid active`}
     >
       {name}
     </button>

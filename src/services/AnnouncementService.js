@@ -1,4 +1,4 @@
-import instance from "./Axios";
+import instance from "../utils/Axios";
 
 
 export const AnnouncementService = {

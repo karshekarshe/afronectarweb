@@ -32,8 +32,8 @@ export default function LoginPage() {
           </div>
         </div>
       </nav>
-      <div className="container md:mx-auto w-full md:max-w-5xl  lg:max-w-6xl px-14 py-14 h-fit mt-0 md:mt-32  flex flex-col items-center justify-center bg-flame-orange rounded-2xl">
-        <div className="w-screen md:max-w-xl h-full bg-amber-50  shadow-2xl shadow-black px-6 py-4 md:mx-auto">
+      <div className="container md:mx-auto w-full md:max-w-5xl  lg:max-w-6xl px-14 py-14 h-fit mt-0 md:mt-32  flex flex-col items-center justify-center bg-flame-orange rounded-none">
+        <div className="w-screen md:max-w-lg h-full bg-amber-50  shadow-2xl shadow-black px-6 py-8 md:mx-auto">
           <div className="space-y-2 px-0 text-center md:text-left">
             <h1 className="font-bold text-base md:text-2xl">
               {t("login_title")}

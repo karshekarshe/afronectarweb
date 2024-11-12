@@ -11,8 +11,13 @@ import PasswordResetRequestPage from "./pages/PasswordResetRequestPage";
 import ActivateAccountPage from "./pages/ActivateAccountPage";
 import ProductsPage from "./pages/ProductsPage";
 import IndexPage from "./pages/IndexPage";
+import BlogPage from "./pages/BlogPage";
+import ArticlePage from "./pages/ArticlePage";
 import DelayedFallback from './components/DelayedFallback'
 import instance from "./utils/Axios";
+import ActiveAccountEmailConfirmation from "./pages/ActivateAccountEmailConfirmation";
+import ContactPage from "./pages/ContactPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 
 
@@ -52,21 +57,23 @@ function App() {
         <AuthProvider store={store}>
           <BrowserRouter>
             <Routes>
-              <Route path="" element={<IndexPage />} />
-              <Route path="/products/" element={<ProductsPage />} />
-              <Route path="/account/login" element={<LoginPage />} />
-              <Route
-                path="/account/registration"
-                element={<RegistrationPage />}
-              />
-              <Route
-                path="/account/password-reset"
-                element={<PasswordResetRequestPage />}
-              />
-              <Route
-                path="/users/activate/:uid/:token"
-                element={<ActivateAccountPage />}
-              />
+              <Route path="/" element={<IndexPage />} />
+              <Route path="/products">
+                <Route path="" element={<ProductsPage />} />
+                <Route path=":slug" element={<ProductDetailPage />} />
+              </Route>
+              <Route path="/contact/" element={<ContactPage />} />
+               <Route path="/blog">
+                  <Route path="articles" element={<BlogPage />} />
+                  <Route path="article/:slug" element={<ArticlePage />} />
+              </Route>
+            <Route path="/account">
+              <Route path="login" element={<LoginPage />} />
+              <Route path="registration" element={<RegistrationPage />} />
+              <Route path="password-reset" element={<PasswordResetRequestPage />} />
+              <Route path="email-sent-confirm/:email" element={<ActiveAccountEmailConfirmation />} />
+              <Route path="activate/:uid/:token" element={<ActivateAccountPage />} />
+            </Route>
             </Routes>
           </BrowserRouter>
         </AuthProvider>
