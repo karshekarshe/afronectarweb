@@ -50,8 +50,8 @@ export default function Product(){
                             <img className="max-w-[200px] rounded-2xl md:max-w-[200px]  h-full mx-auto"
                                  src={product.img}
                                  alt="sidmao expresso beans"/>
-                            <span className="text-xl md:text-base font-bold text-amber-700  px-2 place-self-center">{product.price} CHF / 0.25 kg</span>
-                            <button className="mx-auto text-sm md:text-base py-2 px-2 text-white bg-amber-900 w-[70%] rounded-md hover:bg-amber-950 font-semibold">Acheter</button>
+                            <span className="text-xl md:text-base font-bold text-amber-600  px-2 place-self-center">{product.price} CHF / 250 grams</span>
+                            <button className="mx-auto text-sm md:text-base py-2 px-2 text-white bg-green-700 hover:bg-green-600 w-[70%] rounded-md  font-semibold">Acheter</button>
                         </div> )
                 })}
             </div>
