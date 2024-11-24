@@ -1,8 +1,15 @@
 import '../App.css'
-import React from "react";
+import React, {useEffect, useState} from "react";
+
+
+
+
 
 export default function BlogPage(){
+
+
     return (
-        <div>Blog Page , here all articles</div>
+        <>
+        </>
     )
 }

@@ -7,10 +7,10 @@ import useSignOut from 'react-auth-kit/hooks/useSignOut'
 
 
 
-export default function Header(){
+export default function Header({className}){
     const isAuthenticated = useIsAuthenticated()
     return (
-        <header className="py-2">
+        <header className={`"py-2" ${className}`}>
             <div className="container mx-auto">
                 <nav className="flex flex-row items-center justify-between py-2 px-4">
                     <img className="w-14 md:w-20" src={LogoIcon} alt="logo"/>
@@ -19,9 +19,7 @@ export default function Header(){
                         <li className="hover:text-gray-700">A propos de nous</li>
                         <li className="hover:text-gray-700">Articles</li>
                         <li className="hover:text-gray-700">Contact</li>
-
                     </ul>
-
                     <div className="flex flex-row items-center justify-between gap-4">
                         {isAuthenticated ? <UserLoggedDrowpdownButton /> : <UserNotLoggedButtonGroup />}
                         <button className="group relative">

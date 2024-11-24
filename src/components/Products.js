@@ -23,7 +23,7 @@ export default function Product(){
                 {products && products.map((product) => {
                     return (
                         <div id={product.id}
-                           className="flex flex-col items-start justify-between gap-2  py-4 bg-amber-50 border border-gray-200 rounded-md w-[360px] mx-auto md:w-[300px] px-2 hover:scale-105 shadow-xs shadow-black">
+                           className="flex flex-col items-start justify-between gap-2  py-4 bg-amber-50 border border-gray-200 rounded-2xl w-[360px] mx-auto md:w-[300px] px-2 hover:scale-105 shadow-xs shadow-black">
                             <div className="inline-flex justify-between py-2 px-2 w-full">
                                 <span
                                     className="inline-flex gap-2 bg-orange-100 text-orange-500 font-semibold px-2 py-2 rounded-2xl">

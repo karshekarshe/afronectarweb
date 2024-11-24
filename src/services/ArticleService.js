@@ -4,7 +4,7 @@ export const ArticleService = {
     async fetchAllArticles() {
         try {
             const response = await instance.get('api/blog/articles/')
-            return response.data;
+            return await response.data;
         } catch (error){
             return null
         }
