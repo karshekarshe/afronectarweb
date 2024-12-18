@@ -35,7 +35,7 @@ export default function ArticlePage(){
         <>
             <header className={`${headerBackgroundColour}`}>
                 <Header className="border border-white text-white"/>
-                <HeroLayoutCentered className="bg-inherit ">
+                <HeroLayoutCentered className="bg-inherit">
                     {article ? (
                         <div className="space-y-16 text-white">
                             <h1 className="text-xl md:text-2xl lg:text-4xl text-left font-black">{article.title}</h1>

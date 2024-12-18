@@ -1,9 +1,9 @@
 import React from "react";
 import '../App.css'
 
-export  function HeroLayoutCentered({children}){
+export  function HeroLayoutCentered({children, className}){
     return (
-        <div className="hero h-[400px]">
+        <div className={`hero h-[400px] ${className}`}>
             <div className="hero-content text-center">
                 <div className="max-w-2xl">
                     {children}

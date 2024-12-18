@@ -1,5 +1,5 @@
 
-export const Endpoints = {
+export  const Endpoints = {
     getAllArticlesticlesEndpont() {
         return 'http://localhost:8000/api/blog/articles/'
     },

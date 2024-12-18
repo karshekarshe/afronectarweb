@@ -77,7 +77,17 @@ export default function LoginForm() {
     AccountService.login(email,  password)
         .then(result => {
           if (!result.success){
-            setError({...result.message})
+            setError(result.message)
+            setEmail({
+              email: '',
+              errorMessage: "",
+              isEmailValidate: false,
+            })
+            setPassword({
+              password: '',
+              errorMessage: '',
+              isPasswordValidate: false
+            })
             setLoading(false)
           } else {
             setLoading(false)
@@ -97,8 +107,10 @@ export default function LoginForm() {
 
   return (
     <form className="space-y-2 w-full" noValidate={true}>
-      {Object.values(error).map((value, index) => (
-          <p key={index} className="text-red-500 text-sm h-11 md:text-base">{value}</p>
+      {Object.entries(error).map((field, i) => (
+          <p className="text-[14px] h-11 text-red-500 font-medium capitalize">
+            {field[0]} - {field[1]}
+          </p>
       ))}
       <div className="flex flex-col gap-1 w-full">
         <label className="text-sm" htmlFor="email">
@@ -132,7 +144,7 @@ export default function LoginForm() {
             type="email"
           />
         </div>
-        <p className="text-[14px] h-7 md:text-base text-red-500 font-medium">
+        <p className="text-[14px] h-11 text-red-500 font-medium">
           {email.errorMessage}
         </p>
       </div>
@@ -165,7 +177,7 @@ export default function LoginForm() {
             type="password"
           />
         </div>
-        <p className="text-[14px] h-7 md:text-base text-red-500 font-medium">
+        <p className="text-[14px] h-11 text-red-500 font-medium">
           {password.errorMessage}
         </p>
       </div>
