@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {ProductService} from '../services/ProductService'
 import "../App.css";
-import BgCoffeeCupArabica from '../assets/images/Background-coffee-cupe-arabica-type.png'
-import BgCoffeeCupRobusta from '../assets/images/Background-coffee-cupe-robusta-type.png'
+import BgCoffeeCupArabica from '../assets/images/bg-coffee-variety-arabica.jpg'
+import BgCoffeeCupRobusta from '../assets/images/bg-coffee-variety-robusta.jpg'
 import ImgSocial1 from '../assets/images/social-1.jpg'
 import ImgSocial2 from '../assets/images/social-2.jpg'
 import ImgSocial3 from '../assets/images/social-3.jpg'
@@ -15,7 +15,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function ProductsPage() {
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState([]);
 
   useEffect(() => {
       ProductService
@@ -40,7 +40,7 @@ export default function ProductsPage() {
         <Header />
         <main>
             <section className="w-full flex flex-row  gap-0">
-                <a href="" className="relative text-center max-h-[550px] w-1/2">
+                <a href="" className="relative text-center max-h-[680px] w-1/2">
                     <picture className="overflow-hidden block h-full">
                         <img className="w-full h-full object-fill object-top hover:scale-110 ease-in duration-200"
                              src={BgCoffeeCupArabica} alt="coffee cupe arabica type"/>
@@ -49,7 +49,7 @@ export default function ProductsPage() {
                         Variété Arabica
                     </h2>
                 </a>
-                <a href="" className="relative text-center max-h-[550px] w-1/2">
+                <a href="" className="relative text-center max-h-[680px] w-1/2">
                     <picture className="overflow-hidden block h-full">
                         <img className="w-full h-full object-fill hover:scale-110 ease-in duration-200"
                              src={BgCoffeeCupRobusta} alt="coffee cupe arabica type"/>
@@ -59,6 +59,7 @@ export default function ProductsPage() {
                     </h2>
                 </a>
             </section>
+            <hr/>
             <ProductFilter setProduct={setProduct}/>
             <ProductsGrid product={product}/>
             <hr/>
