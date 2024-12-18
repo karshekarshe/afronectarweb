@@ -17,7 +17,7 @@ export default function ProductFilter({ product, setProduct }) {
   return (
     <section className="py-5">
       <div className="container mx-auto">
-        <h2 className="text-center md:pb-[20px]  pb-[15px] md:text-[32px] text-[22px] text-[#13131A] font-semibold leading-[normal]">
+        <h2 className="text-center   pb-4 md:text-[32px] text-[22px] text-[#13131A] font-semibold leading-[normal]">
           Filtrer par utilisation
         </h2>
 

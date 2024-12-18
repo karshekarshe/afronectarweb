@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import {ProductService} from '../services/ProductService'
 import "../App.css";
-import ImgHeroSh from "../assets/images/hero-sh.png";
-import ImgProductHero from "../assets/images/product_hero.png";
-import ImgProductHeroSm from "../assets/images/product_hero_sm.png";
+import BgCoffeeCupArabica from '../assets/images/Background-coffee-cupe-arabica-type.png'
+import BgCoffeeCupRobusta from '../assets/images/Background-coffee-cupe-robusta-type.png'
+import ImgSocial1 from '../assets/images/social-1.jpg'
+import ImgSocial2 from '../assets/images/social-2.jpg'
+import ImgSocial3 from '../assets/images/social-3.jpg'
+import ImgSocial4 from '../assets/images/social-4.jpg'
+import ImgSocial5 from '../assets/images/social-5.jpg'
+import ImgSocial6 from '../assets/images/social-6.jpg'
 import ProductFilter from "../components/ProductFilter";
 import ProductsGrid from "../components/ProductsGrid";
 import Header from "../components/Header";
@@ -34,66 +39,109 @@ export default function ProductsPage() {
       <>
         <Header />
         <main>
-          <section className=" bg-black relative md:pt-40 pt-[120px] md:pb-48 pb-[340px]">
-            <img className="absolute left-0 top-20" src={ImgHeroSh} alt="" />
-            <div className="container mx-auto md:px-[20px] px-[0]">
-              <div className="lg:flex grid">
-                <div className="xl:w-5/12 lg:w-7/12 w-[100%] relative z-10 md:px-[0px] px-[20px]">
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl text-white  text-center md
-                  text-left font-bold md:leading-[78px] leading-[90px]">
-                    Découvre toute la
-                    <span className="text-green-700"> splendeur </span>
-                    du
-                    <span className="text-green-700"> café.</span>
-                  </h1>
-
-                  <p className="text-[#C5C5C5] pt-5 pb-7 pr-3">
-                    {/*{getShortText(product.description, 255)}*/}
-                  </p>
-
-                  <div className="grid grid-cols-4 w-2/3 mx-auto">
-                    <span className="col-span-4 text-white uppercase px-1 py-1 bg-[#F26DCF] text-center">
-                      Origine éthiopienne
-                    </span>
-                    <span className="col-span-2 text-white uppercase px-1 py-1 bg-[#7B44F2] text-center">
-                      organique
-                    </span>
-                    <span className="col-span-2 text-white uppercase px-1 py-1 bg-[#CAF272] text-center">
-                      région sidamo
-                    </span>
-                    <span className="col-span-2 text-gray-500 uppercase px-1 py-1 bg-[#F2F2DC] text-center">
-                      100% arabica
-                    </span>
-                    <span className="col-span-2 text-white uppercase px-1 py-1 bg-[#D97C0B] text-center">
-                      pour l'espresso
-                    </span>
-                    <span className="col-span-2 text-white uppercase px-1 py-1 bg-[#F2675C] text-center">
-                      pour mocha
-                    </span>
-                    <span className="col-span-2 text-white uppercase px-1 py-1 bg-[#0C84EB] text-center">
-                      pour le café turc
-                    </span>
-                  </div>
+            <section className="w-full flex flex-row  gap-0">
+                <a href="" className="relative text-center max-h-[550px] w-1/2">
+                    <picture className="overflow-hidden block h-full">
+                        <img className="w-full h-full object-fill object-top hover:scale-110 ease-in duration-200"
+                             src={BgCoffeeCupArabica} alt="coffee cupe arabica type"/>
+                    </picture>
+                    <h2 className="absolute bottom-[10%] text-white left-0 right-0  lg:text-[32px] md:text-[22px] text-[18px] font-black leading-[normal]">
+                        Variété Arabica
+                    </h2>
+                </a>
+                <a href="" className="relative text-center max-h-[550px] w-1/2">
+                    <picture className="overflow-hidden block h-full">
+                        <img className="w-full h-full object-fill hover:scale-110 ease-in duration-200"
+                             src={BgCoffeeCupRobusta} alt="coffee cupe arabica type"/>
+                    </picture>
+                    <h2 className="absolute bottom-[10%] text-white left-0 right-0   lg:text-[32px] md:text-[22px] text-[18px]  font-black leading-[normal]">
+                        Variété Robusta
+                    </h2>
+                </a>
+            </section>
+            <ProductFilter setProduct={setProduct}/>
+            <ProductsGrid product={product}/>
+            <hr/>
+            <section className="container mx-auto py-20">
+                <div className="flex flex-col md:flex-row">
+                    <div className="flex flex-col col-span-1 bg-amber-100 border  px-4 py-2 h-[170px]  md:h-[250px] w-full justify-between items-start">
+                        <div className="space-y-2">
+                            <span className="text-gray-400 font-medium">[01]</span>
+                            <h4 className="text-xl md:text-3xl lg:text-4xl font-medium">livraison gratuite</h4>
+                        </div>
+                        <div className="flex flex-row gap-2 justify-between items-end">
+                            <span className="text-2xl md:text-4xl lg:text-6xl font-medium text-green-700">2-4</span>
+                            <span
+                                className="text-sm md:text-base lg:text-xl font-light text-gray-700">jours de livraison</span>
+                        </div>
+                    </div>
+                    <div className="flex flex-col col-span-1 bg-amber-50 border px-4 py-2 h-[170px] md:h-[250px] w-full justify-between items-start">
+                        <div className="space-y-2">
+                            <span className="text-gray-400 font-medium">[02]</span>
+                            <h4 className="text-xl md:text-3xl lg:text-4xl font-medium">retours gratuits</h4>
+                        </div>
+                        <div className="flex flex-row gap-2 justify-between items-end">
+                            <span className="text-2xl md:text-4xl lg:text-6xl font-medium text-green-700">4.8</span>
+                            <span
+                                className="text-sm md:text-base lg:text-xl font-light text-gray-700">basé sur 100 avis</span>
+                        </div>
+                    </div>
+                    <div className="flex flex-col col-span-2 bg-amber-50 border px-4 py-2 h-[170px] md:h-[250px] w-full justify-between items-start">
+                        <div className="space-y-2">
+                            <span className="text-gray-400 font-medium">[03]</span>
+                            <h4 className="text-xl md:text-3xl lg:text-4xl font-medium">notre promesse d'égalisation des prix</h4>
+                        </div>
+                        <div className="flex flex-row gap-2 justify-between items-end">
+                            <span className="text-2xl md:text-4xl lg:text-6xl font-medium text-green-700">15</span>
+                            <span
+                                className="text-sm md:text-base lg:text-xl font-light text-gray-700">jours pour retourner le product (*conditions)</span>
+                        </div>
+                    </div>
                 </div>
-                <div className="xl:w-7/12 lg:w-6/12 w-[100%]">
-                  <img
-                    className="md:block hidden absolute top-0 right-0 h-full w-[100%] object-cover"
-                    src={ImgProductHero}
-                    alt=""
-                  />
-                  <img
-                    className="md:hidden block absolute top-0 right-0 h-full w-[100%] object-cover"
-                    src={ImgProductHeroSm}
-                    alt=""
-                  />
+            </section>
+            <hr/>
+            <section className="container mx-auto py-20 space-y-8 px-4">
+                <div className="space-y-6">
+                    <h2 className="md:text-[32px] text-[22px] text-[#13131A] font-semibold leading-[normal]">
+                        <span className="text-gray-500"> Regardez comment ils </span>consomment pour avoir une idée
+                    </h2>
+                    <span className="text-green-700 mt-10 font-black text-base md:text-xl lg:text-2xl">@buncoffee.store</span>
                 </div>
-              </div>
-            </div>
-          </section>
-          <ProductFilter setProduct={setProduct} />
-          <ProductsGrid product={product} />
-          <Footer />
-      </main>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div className="grid gap-4">
+                        <div>
+                            <img className="h-auto max-w-full"
+                                 src={ImgSocial1} alt=""/>
+                        </div>
+                        <div>
+                        <img className="h-auto max-w-full"
+                                 src={ImgSocial2} alt=""/>
+                        </div>
+                    </div>
+                    <div className="grid gap-4">
+                        <div>
+                            <img className="h-auto max-w-full"
+                                 src={ImgSocial3} alt=""/>
+                        </div>
+                        <div>
+                            <img className="h-auto max-w-full"
+                                 src={ImgSocial4} alt=""/>
+                        </div>
+                    </div>
+                    <div className="grid gap-4">
+                        <div>
+                            <img className="h-auto max-w-full"
+                                 src={ImgSocial5} alt=""/>
+                        </div>
+                        <div>
+                            <img className="h-auto max-w-full"
+                                 src={ImgSocial6} alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <Footer/>
+        </main>
       </>
   );
 }

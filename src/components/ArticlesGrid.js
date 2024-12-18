@@ -53,7 +53,6 @@ export default function ArticlesGrid({article}){
                                         </div>
                                     </div>
                                 </a>
-
                             )
                         })
                     }

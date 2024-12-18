@@ -25,12 +25,12 @@ export const AccountService = {
             const response = await instance.post('/auth/jwt/create',
                 {
                     email: email,
-                    passowrd: passowrd
+                    password: passowrd
                 })
             return {success:true, data: response.data}
         } catch (error){
             console.log("Error in login occurred", error)
-            return {success: false, message: error}
+            return {success: false, message: error.response.data}
         }
     }
 }

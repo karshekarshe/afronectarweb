@@ -4,6 +4,7 @@ import AnnouncementBannier from './AnnouncementBannier'
 import LogoIcon from '../assets/svgs/logo.svg'
 import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated'
 import useSignOut from 'react-auth-kit/hooks/useSignOut'
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -15,10 +16,10 @@ export default function Header({className}){
                 <nav className="flex flex-row items-center justify-between py-2 px-4">
                     <img className="w-14 md:w-20" src={LogoIcon} alt="logo"/>
                     <ul className="hidden lg:flex flex-row items-center justify-between gap-5 text-[18px] font-medium">
-                        <li className="hover:text-gray-700">Nos cafés</li>
+                        <li className="hover:text-gray-700"><a href="/products/">Nos cafés</a></li>
                         <li className="hover:text-gray-700">A propos de nous</li>
-                        <li className="hover:text-gray-700">Articles</li>
-                        <li className="hover:text-gray-700">Contact</li>
+                        <li className="hover:text-gray-700"><a href="/blog/articles">Articles</a></li>
+                        <li className="hover:text-gray-700"><a href="/contact/">Contact</a></li>
                     </ul>
                     <div className="flex flex-row items-center justify-between gap-4">
                         {isAuthenticated ? <UserLoggedDrowpdownButton /> : <UserNotLoggedButtonGroup />}
@@ -53,11 +54,19 @@ function UserNotLoggedButtonGroup(){
 
 function UserLoggedDrowpdownButton(){
     const [isCollapse, setIsCollapse] = useState(false)
+    const navigate = useNavigate()
+    const signOut = useSignOut()
+
+    function handleSignOut(){
+        signOut()
+        navigate('/account/login/')
+    }
+
     return (
-        <button className="relative group  py-1 px-2 bg-amber-50 rounded-2xl">
+        <button className="relative group  bg-green-50 rounded-2xl">
             <div role="button" onClick={()=> setIsCollapse(!isCollapse)} className="inline-flex items-center cursor-pointer px-2 py-2">
-                <UserIcon className="w-5 group-hover:stroke-green-700 group-hover:fill-green-700 group-active:stroke-green-700 group-active:fill-green-700"  />
-                <span className="group-hover:text-green-700 text-xs md:text-sm font-medium">AM</span>
+                <UserIcon className="w-5 stroke-green-700 fill-green-700"  />
+                <span className="text-green-700 text-xs md:text-sm font-medium">AM</span>
             </div>
             {isCollapse && (
                 <div className="absolute mt-2 max-w-md flex flex-col items-start justify-between bg-amber-50 px-4 py-2 right-0 rounded-2xl">
@@ -65,7 +74,7 @@ function UserLoggedDrowpdownButton(){
                         <li className="">Profile</li>
                         <li>Order History</li>
                         <li>Password reset</li>
-                        <li>Log out</li>
+                        <li><a onClick={handleSignOut}>Log out</a></li>
                     </ul>
                 </div>
             )}
