@@ -22,6 +22,8 @@ export default function BlogPage(){
         setHeaderBackgroundColour(randomBgColour)
     }, []);
 
+
+
     return (
         <>
             <header className={`${headerBackgroundColour}`}>
@@ -52,26 +54,26 @@ export default function BlogPage(){
                 </HeroLayoutCentered>
             </header>
             <section className="py-20">
-                <div className="max-w-4xl mx-auto space-y-6">
+                <div className="container mx-auto space-y-6">
                     <div className="space-y-6 text-center">
                         <h1 className="text-xl  md:text-2xl lg:text-4xl  font-black">Nos derniers
                             articles</h1>
                         <p className="ext-sm md:text-base font-normal">Explorez nos idées pour connaître les dernières tendances, analyses et points de vue d'experts.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-4 px-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-4 px-4 mx-auto">
                         {data && data.map((article, index) => {
                             return (
                                 <a
                                     key={index}
                                     href={`http://localhost:3000/blog/article/${article.slug}`}
-                                    className={`group cursor-pointer w-full  md:max-w-lg border border-gray-300 rounded-2xl p-5 ${index <= 1 ?  backgroundColours[Math.random() * backgroundColours.length | 0]:""}`}>
+                                    className={"group cursor-pointer w-full  md:max-w-lg border border-gray-300 rounded-2xl p-5"}>
                                     <div className="flex items-center mb-6">
                                         <img src={`http://localhost:8000/${article.img}`} alt="article image"
                                              className="w-full max-h-[250px] md:max-h-[300px] rounded-2xl shadow-lg shadow-black object-cover  object-center"/>
                                     </div>
                                     <div className="block space-y-6">
                                         <h4 className="font-medium leading-8 mb-9">{article.title}</h4>
-                                        <p className="text-sm md:text-base font-normal text-justify leading-relaxed">{article.content.substring(0, 255)}</p>
+                                        <p className="text-sm md:text-base font-normal text-justify leading-relaxed">{article.content.substring(0, 100)}</p>
                                         <div className="flex items-center justify-between  font-medium">
                                             <div>
                                                 <span className="text-sm font-normal capitalize">publié par </span>

@@ -11,10 +11,10 @@ import {useNavigate} from "react-router-dom";
 export default function Header({className}){
     const isAuthenticated = useIsAuthenticated()
     return (
-        <header className={`"py-2" ${className}`}>
+        <header className="py-2 sticky top-0 w-full z-20 bg-white  shadow-sm">
             <div className="container mx-auto">
                 <nav className="flex flex-row items-center justify-between py-2 px-4">
-                    <img className="w-14 md:w-20" src={LogoIcon} alt="logo"/>
+                    <a href="/"><img className="w-14 md:w-20" src={LogoIcon} alt="logo"/></a>
                     <ul className="hidden lg:flex flex-row items-center justify-between gap-5 text-[18px] font-medium">
                         <li className="hover:text-gray-700"><a href="/products/">Nos cafés</a></li>
                         <li className="hover:text-gray-700">A propos de nous</li>

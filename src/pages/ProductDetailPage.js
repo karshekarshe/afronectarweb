@@ -29,7 +29,7 @@ export default function ProductDetailPage(){
         <>
             <Header />
             <main className="container mx-auto py-16 px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl gap-10 mx-auto">
                     <div>
                         <div className="flex gap-x-[15px] sm:gap-x-[30px] ">
                             <div className="w-[18.9%] sm:w-[109px] md:w-[137px] lg:w-[99px] xl:w-[180px] shrink-0">
@@ -57,8 +57,9 @@ export default function ProductDetailPage(){
                                 <h3 className="text-2xl text-green-900 font-medium">CHF {variant.price}</h3>
 
                                 <a href="#"
-                                   className="inline-flex border border-black px-4 py-2 rounded-md gap-x-[10px] text-sm md:text-base font-medium text-green-700 hover:opacity-80">
-                                    <img className="hover:fill-green-700" src={SVgHeartIcon} alt=""/>
+                                   className="inline-flex border h-11 border-black px-4 py-2 rounded-md gap-x-[10px] text-[14px] md:text-[16px] font-medium text-green-700 hover:opacity-80">
+                                    <img className="hover:fill-green-700 w-6
+                                    " src={SVgHeartIcon} alt=""/>
                                     Ajouter aux favoris
                                 </a>
                             </div>
@@ -75,7 +76,7 @@ export default function ProductDetailPage(){
                         </div>
                         <div className="flex flex-row items-center justify-between gap-2 pt-6 sm:pt-[50px] pb-[25px]">
 
-                            <div className="flex items-center flex-grow  justify-center py-4 px-4 border border-[#D1D2D5] rounded sm:rounded-[6px]">
+                            <div className="flex items-center h-11 flex-grow  justify-center py-4 px-4 border border-[#D1D2D5] rounded sm:rounded-[6px]">
                                 <button type="button" className="text-[#13131A]" data-hs-input-number-decrement="">
                                     <svg className="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
                                          width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -97,12 +98,12 @@ export default function ProductDetailPage(){
                             </div>
 
                             <a href="#"
-                               className="inline-flex items-center justify-center flex-grow  px-4 py-3  gap-2  bg-white text-green-700 border border-[#D1D2D5]  rounded sm:rounded-[6px] text-[14px] sm:text-lg  font-medium hover:bg-green-700 hover:text-white transition-all duration-500 ease-out">
+                               className="inline-flex items-center justify-center flex-grow h-11  px-4 py-3  gap-2  bg-white text-green-700 border border-[#D1D2D5]  rounded sm:rounded-[6px] text-[14px] md:text-[16px]  font-medium hover:bg-green-700 hover:text-white transition-all duration-500 ease-out">
                                 <CaddyIcon className="w-6" />
                                 Ajouter au panier
                             </a>
                             <a href="#"
-                               className="inline-flex items-center justify-center flex-grow  px-4 py-3 bg-green-700 text-white  gap-2  border border-[#D1D2D5]  rounded sm:rounded-[6px] text-[14px] sm:text-lg  font-medium hover:bg-green-700 hover:text-white transition-all duration-500 ease-out">
+                               className="inline-flex items-center justify-center h-11 flex-grow  px-4 py-3 bg-green-700 text-white  gap-2  border border-[#D1D2D5]  rounded sm:rounded-[6px] text-[14px] md:text-[16px] font-medium hover:bg-green-700 hover:text-white transition-all duration-500 ease-out">
                                 <BankCartIcon className="w-6" />
                                 Acheter
                             </a>
@@ -111,8 +112,8 @@ export default function ProductDetailPage(){
                     </div>
                 </div>
                 <section className="px-16 py-20 space-y-6 rounded-md">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium capitalize">What we are drinking ?</h2>
-                    <p className="text-xl font-light leading-relaxed">Discover the essence of our coffee: an artisanal product, carefully selected and roasted to offer a unique experience in the cup. At Bun, we believe that each sip must capture the authenticity of the Ethiopian lands and Swiss know-how, for an exceptional drink.</p>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium capitalize">Qu'est-ce qu'on boit ?</h2>
+                    <p className="text-sm md:text-base font-light leading-relaxed text-justify">Découvrez l’essence de notre café : un produit artisanal, soigneusement sélectionné et torréfié pour offrir une expérience unique en tasse. Chez Bun, nous pensons que chaque gorgée doit capturer l’authenticité des terres éthiopiennes et le savoir-faire suisse, pour une boisson d’exception.</p>
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 place-self-center gap-16">
                         <div className="flex flex-col items-center justify-between gap-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1}
@@ -135,7 +136,7 @@ export default function ProductDetailPage(){
 
 
                             <div className="flex flex-col gap-2 justify-between items-center text-center">
-                                <span className="font-bold text-xl">Producer</span>
+                                <span className="font-bold text-xl">Producteur</span>
                                 <span className="font-light">Sidamo Union</span>
                             </div>
                         </div>
@@ -143,7 +144,7 @@ export default function ProductDetailPage(){
                             <img className="w-20 stroke-0" src={SvgCoffeeBeansIcon} alt="coffee process washed icon"/>
 
                             <div className="flex flex-col gap-2 text-center">
-                                <span className="font-bold text-xl">Variety</span>
+                                <span className="font-bold text-xl">Varieté</span>
                                 <span className="font-light">Sidamo</span>
                             </div>
                         </div>
@@ -151,7 +152,7 @@ export default function ProductDetailPage(){
 
                             <img className="w-20 stroke-0" src={SvgCoffeeBeansWashed} alt="coffee process washed icon"/>
                             <div className="flex flex-col gap-2 text-center">
-                                <span className="font-bold text-xl">Process</span>
+                                <span className="font-bold text-xl">Processus</span>
                                 <span className="font-light">Washed</span>
                             </div>
                         </div>

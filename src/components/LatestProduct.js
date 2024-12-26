@@ -12,14 +12,14 @@ export default function LatestProduct(){
                         <span className="text-sm text-amber-950 font-medium uppercase bg-amber-400 px-2 py-1 rounded-r-2xl text-center">origine Éthiopie</span>
                     </div>
                     <p className="text-justify leading-relaxed text-sm md:text-base w-full text-amber-950 font-bold leading-loose">Chez Bun, nous pensons qu'un bon café doit être simple, durable et significatif. Notre approche est ancrée dans l'idée que moins c'est plus : moins de distractions, plus d'attention à la qualité.</p>
-                <button
+                <a  href="http://localhost:3000/products"
                     className="inline-flex gap-2 uppercase justify-center items-center px-3 py-3 font-medium text-xs  md:text-sm lg:text-base  bg-green-700 text-white rounded-md place-self-center hover:scale-105">
                     Découvrez le café sidamo
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                          stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
                     </svg>
-                </button>
+                </a>
             </div>
         </div>
     )

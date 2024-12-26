@@ -5,7 +5,7 @@ import SvgContactHeader from '../assets/images/contact_header_svg.png'
 import ImgContactHeader from '../assets/images/contact_header_img.png'
 import ImgPhoneIcon from  '../assets/images/phone_icon.svg'
 import ImgChatIcon from  '../assets/images/chat_icon.svg'
-import SvgPhoneIconGreen from '../assets/images/phone.svg'
+import MailIcon from  '../assets/svgs/mail.svg'
 import ImgContactInfoBg from '../assets/images/contact_info_bg.png'
 import Footer from "../components/Footer";
 
@@ -53,13 +53,10 @@ export default function ContactPage(){
                             <img src={ImgPhoneIcon}
                                  className="md:pb-[23px] pb-[13px] md:w-[50px] w-[30px] mx-[auto]" alt="phone_icon"/>
                             <p className="text-[#009368] md:pb-[23px] pb-[10px] md:text-[15px] text-[12px] font-semibold">
-                                Contact Us</p>
+                                Contactez-nous</p>
                             <p className="md:text-[18px] text-[14px] md:pb-[23px] pb-[10px] font-light md:leading-[28px] leading-[normal]">
-                                Interested in
-                                our coffee products? Just
-                                pick up
-                                the phone<br className="lg:block hidden"/>
-                                to chat with a member of our sales team.</p>
+                                Vous êtes intéressé par nos produits de café ? Il vous suffit de prendre le téléphone pour discuter avec un membre de notre équipe commerciale.
+                            </p>
                             <a href="#"
                                className="text-[#13131A] md:mb-[23px] mb-[10px] md:text-[16px] text-[10px] font-medium underline md:h-[52px] leading-[normal] h-auto flex items-center justify-center hover:opacity-[0.7]">
                                 +41 076 483 33 17
@@ -74,15 +71,12 @@ export default function ContactPage(){
                             <img src={ImgChatIcon}
                                  className="md:pb-[23px] pb-[15px] md:w-[50px] w-[30px] mx-[auto]" alt="chat_icon"/>
                             <a href="#"
-                               className="text-[#13131A] md:pb-[28px] pb-[10px] md:text-[16px] text-[12px] font-semibold hover:opacity-[0.7] md:leading-[28px] leading-[normal]">Contact
-                                Customer<br className="md:hidden block"/> Support</a>
+                               className="text-[#13131A] md:pb-[28px] pb-[10px] md:text-[16px] text-[12px] font-semibold hover:opacity-[0.7] md:leading-[28px] leading-[normal]">Contactez nos services par email</a>
                             <p className="text-[#49321B] md:pb-[67px] pb-[19px] md:text-[18px] text-[14px]  font-light md:leading-[28px] leading-[normal]">
-                                Sometimes you need a little help from your
-                                friends. Or a<br className="lg:block hidden"/>
-                                HubSpot support rep. Don’t worry… we’re here for you.</p>
-                            <a href="#"
-                               className="bg-green-700 text-white inline-flex items-center md:text-[18px] text-[14px] font-medium md:h-[51px] h-[28px] py-0 md:px-[20px] px-0 mx-[auto] md:w-[auto] w-[85%] rounded-[6px]">
-                                Chat with Our Bot
+                                Parfois, vous avez besoin d'un peu d'aide de la part de vos amis. Ou d'un représentant du support HubSpot. Ne vous inquiétez pas, nous sommes là pour vous.</p>
+                            <a href="#" className="bg-green-700 gap-2 text-white inline-flex items-center md:text-[16px] text-[14px] hover:bg-green-500 font-medium md:h-[51px] h-[28px] py-0 md:px-[20px] px-0 mx-[auto] md:w-[auto] w-[85%] rounded-[6px]">
+                                <img src={MailIcon} alt=""/>
+                                support@afronectar.ch
                             </a>
                         </div>
                     </div>
@@ -122,7 +116,7 @@ export default function ContactPage(){
                                     <h3 className="md:text-[15px] text-[12px] font-semibold md:leading-[19.5px] leading-[normal] text-[#213430] md:pb-[3.5px] pb-[4px]">
                                         Envoyez-nous un mail
                                     </h3>
-                                    <a href="mailto:info@yourgmail.com" className="text-[#6F7775] block md:text-[12px] text-[10px] font-light md:leading-[16.5px] leading-[normal]">info@afronectar.ch</a>
+                                    <a href="mailto:info@yourgmail.com" className="text-[#6F7775] block md:text-[12px] text-[10px] font-light md:leading-[16.5px] leading-[normal]">abdulahi.maxamed@afronectar.ch</a>
                                 </div>
                             </div>
                             <div className="flex align-middle gap-[15px]">
@@ -146,7 +140,7 @@ export default function ContactPage(){
                                 <div className="flex align-middle md:gap-[15px] gap-[11px]">
                                     <div className="form_group w-[100%]">
                                         <label htmlFor="Name"
-                                               className="flex pb-[7px] md:text-[12px] text-[10px] font-medium text-[#213430]">Name</label>
+                                               className="flex pb-[7px] md:text-[12px] text-[10px] font-medium text-[#213430]">Nom</label>
                                         <input type="text"
                                                className="text-[#6F7775] md:text-[12px] text-[10px] w-[100%] md:leading-[16.5px] leading-[normal] font-normal md:py-[13px] py-[10px] md:px-[15px] px-[11px] outline-none border border-[#DDD] rounded-[3.7px]"
                                                id="name" name="name" placeholder="Your Name" required=""/>
@@ -162,14 +156,14 @@ export default function ContactPage(){
                                 <div className="flex align-middle md:gap-[15px] gap-[11px]">
                                     <div className="form_group w-[100%]">
                                         <label htmlFor="Phone"
-                                               className="flex pb-[7px] md:text-[12px] text-[10px] font-medium text-[#213430]">Phone</label>
+                                               className="flex pb-[7px] md:text-[12px] text-[10px] font-medium text-[#213430]">Téléphone</label>
                                         <input type="text"
                                                className="text-[#6F7775] md:text-[12px] text-[10px] w-[100%] md:leading-[16.5px] leading-[normal] font-normal md:py-[13px] py-[10px] md:px-[15px] px-[11px] outline-none border border-[#DDD] rounded-[3.7px]"
                                                id="Phone" name="Phone" placeholder="Your Phone" required=""/>
                                     </div>
                                     <div className="form_group w-[100%]">
                                         <label htmlFor="subject"
-                                               className="flex pb-[7px] md:text-[12px] text-[10px] font-medium text-[#213430]">Subject</label>
+                                               className="flex pb-[7px] md:text-[12px] text-[10px] font-medium text-[#213430]">Sujet</label>
                                         <input type="text"
                                                className="text-[#6F7775] md:text-[12px] text-[10px] w-[100%] md:leading-[16.5px] leading-[normal] font-normal md:py-[13px] py-[10px] md:px-[15px] px-[11px] outline-none border border-[#DDD] rounded-[3.7px]"
                                                id="subject" name="subject" placeholder="Enter Subject" required=""/>

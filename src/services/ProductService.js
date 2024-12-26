@@ -5,7 +5,7 @@ export const ProductService = {
     async fetchLatestProduct() {
         try {
             const response = await instance.get('api/products/')
-            return {success:true, data: response.data[0]}
+            return {success:true, data: response.data.results}
         } catch (error) {
             console.log(error)
             const errorMessage = error.response?.data || "Internal server error. Please try again.";

@@ -4,7 +4,7 @@ export const VariantService = {
     async fetchAllVariants() {
         try {
             const response = await instance.get('api/variants/')
-            return response.data;
+            return response.data.results;
         } catch (error){
             console.log(error)
             return undefined

@@ -6,6 +6,7 @@ import IconCoffeeTurkPot from "../assets/images/turk-pot.png"
 import IconCoffeeFrenchPress from "../assets/images/french-press.png"
 import IconCoffeeMokaPot from "../assets/images/moka-pot.png"
 import IconCoffeeBeans from "../assets/images/coffee-beans.png"
+import {ProductService} from "../services/ProductService";
 
 
 export default function ProductFilter({setProduct}) {
@@ -15,7 +16,7 @@ export default function ProductFilter({setProduct}) {
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await instance.get("api/categories/");
-      return response.data;
+      return response.data.results;
     };
     fetchCategories().then((data) => setCategories(_ => [{name:'tout'} , ...data]));
   }, []);
@@ -40,7 +41,7 @@ export default function ProductFilter({setProduct}) {
 
    const fetchProductByCategory = async (categoryName) => {
         const response = await instance.get(`api/variants/?category__name=${categoryName}`);
-        return response.data;
+        return response.data.results;
    }
 
 
@@ -53,10 +54,10 @@ export default function ProductFilter({setProduct}) {
 
         <div className="flex flex-wrap md:gap-[20px] gap-[10px] justify-center md:pb-[40px] pb-[20px]">
 
-            {categories.map((category, index) => {
+            {categories.map((category, number) => {
             return (
               <FilterButton
-                index={index}
+                index={number}
                 name={category.name}
                 activeIndex={activeIndex}
                 setActiveIndex={setActiveIndex}
@@ -82,17 +83,27 @@ function FilterButton({ index, activeIndex, setActiveIndex, name, imageUrl, setP
         onClick={
             async (event) => {
                 const categoryName = event.currentTarget.value.toLowerCase();
-                const index = event.currentTarget.id;
                 setActiveIndex(index)
-                if(categoryName !== 'tout') {
+                if(categoryName === 'tout') {
+                    ProductService
+                      .fetchLatestProduct()
+                      .then( (result) => {
+                            if (result.success){
+                              setProduct(result.data)
+                            }
+                      }
+                    )
+
+                } else {
                     const products = await fetchProductByCategory(categoryName);
-                    console.log(products)
-                    setProduct(products)
+                    console.log(products);
+                    setProduct({variants: products});
                 }
+
             }
         }
         type="button"
-        className={`hover:bg-[#006838] ${index === activeIndex ? "bg-[#006838] text-[#fff]" : "bg-white"} flex flex-row items-center justify-center gap-2 capitalize  hover:text-[#fff] transition-[0.5s] md:text-[18px] text-[12.956px] leading-[normal] font-medium text-[#49321B] md:h-[50px] h-[36px] px-[20px] rounded-[70px]`}
+        className={`hover:bg-[#006838] ${index === activeIndex ? "bg-[#006838] text-[#fff]" : "bg-white"} flex flex-row items-center justify-center gap-2 capitalize  hover:text-[#fff] transition-[0.5s] md:text-[18px] text-[14px] leading-[normal] font-medium text-[#49321B] md:h-[50px] h-[36px] px-[20px] rounded-[70px]`}
     >
       <img className="h6 w-6 object-fill" src={imageUrl} alt="coffee type icons"/>
       {name}

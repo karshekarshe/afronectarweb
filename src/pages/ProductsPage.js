@@ -22,9 +22,9 @@ export default function ProductsPage() {
           .fetchLatestProduct()
           .then( (result) => {
             if (result.success){
-              setProduct(result.data)
+                setProduct(result.data)
             }
-      }
+        }
       )
   }, []);
 
@@ -63,12 +63,12 @@ export default function ProductsPage() {
             <ProductFilter setProduct={setProduct}/>
             <ProductsGrid product={product}/>
             <hr/>
-            <section className="container mx-auto py-20">
+            <section className="container mx-auto py-20 px-4">
                 <div className="flex flex-col md:flex-row">
-                    <div className="flex flex-col col-span-1 bg-amber-100 border  px-4 py-2 h-[170px]  md:h-[250px] w-full justify-between items-start">
+                    <div className="flex flex-col col-span-1 bg-amber-100 border  px-4 py-2 h-[170px] md:h-[210px] w-full justify-between items-start">
                         <div className="space-y-2">
                             <span className="text-gray-400 font-medium">[01]</span>
-                            <h4 className="text-xl md:text-3xl lg:text-4xl font-medium">livraison gratuite</h4>
+                            <h4 className="text-base md:text-2xl lg:text-3xl font-medium">Livraison gratuite</h4>
                         </div>
                         <div className="flex flex-row gap-2 justify-between items-end">
                             <span className="text-2xl md:text-4xl lg:text-6xl font-medium text-green-700">2-4</span>
@@ -76,10 +76,10 @@ export default function ProductsPage() {
                                 className="text-sm md:text-base lg:text-xl font-light text-gray-700">jours de livraison</span>
                         </div>
                     </div>
-                    <div className="flex flex-col col-span-1 bg-amber-50 border px-4 py-2 h-[170px] md:h-[250px] w-full justify-between items-start">
+                    <div className="flex flex-col col-span-1 bg-amber-50 border px-4 py-2h-[170px] md:h-[210px] w-full justify-between items-start">
                         <div className="space-y-2">
                             <span className="text-gray-400 font-medium">[02]</span>
-                            <h4 className="text-xl md:text-3xl lg:text-4xl font-medium">retours gratuits</h4>
+                            <h4 className="text-base md:text-2xl lg:text-3xl font-medium">Retours gratuits</h4>
                         </div>
                         <div className="flex flex-row gap-2 justify-between items-end">
                             <span className="text-2xl md:text-4xl lg:text-6xl font-medium text-green-700">4.8</span>
@@ -87,10 +87,10 @@ export default function ProductsPage() {
                                 className="text-sm md:text-base lg:text-xl font-light text-gray-700">basé sur 100 avis</span>
                         </div>
                     </div>
-                    <div className="flex flex-col col-span-2 bg-amber-50 border px-4 py-2 h-[170px] md:h-[250px] w-full justify-between items-start">
+                    <div className="flex flex-col col-span-2 bg-amber-50 border px-4 py-2 h-[170px] md:h-[210px] w-full justify-between items-start">
                         <div className="space-y-2">
                             <span className="text-gray-400 font-medium">[03]</span>
-                            <h4 className="text-xl md:text-3xl lg:text-4xl font-medium">notre promesse d'égalisation des prix</h4>
+                            <h4 className="text-base md:text-2xl lg:text-3xl font-medium">Notre promesse d'égalisation des prix</h4>
                         </div>
                         <div className="flex flex-row gap-2 justify-between items-end">
                             <span className="text-2xl md:text-4xl lg:text-6xl font-medium text-green-700">15</span>
@@ -100,7 +100,6 @@ export default function ProductsPage() {
                     </div>
                 </div>
             </section>
-            <hr/>
             <section className="container mx-auto py-20 space-y-8 px-4">
                 <div className="space-y-6">
                     <h2 className="md:text-[32px] text-[22px] text-[#13131A] font-semibold leading-[normal]">
